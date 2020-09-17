@@ -20,6 +20,13 @@ class App extends Component {
           </div>
         </Router>
       </Provider>
+      <Router>
+        <div className="App">
+          <Header />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/addProject" component={AddProject} />
+        </div>
+      </Router>
     );
   }
 }

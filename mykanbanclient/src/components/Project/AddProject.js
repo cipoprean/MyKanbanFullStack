@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+export default class AddProject extends Component {
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
