@@ -1,7 +1,6 @@
 package com.ciprian.myKanban.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -31,6 +30,9 @@ public class Project {
     private Date created_at;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_at;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
+
+    private Backlog backlog;
 
     @PrePersist
     protected void onCreate() {
@@ -106,5 +108,13 @@ public class Project {
 
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
     }
 }
